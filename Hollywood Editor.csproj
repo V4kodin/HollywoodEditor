@@ -101,7 +101,10 @@
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="logo_ha_1280x720.png" />
+    <Resource Include="lodoeditor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="logo_hollywood.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

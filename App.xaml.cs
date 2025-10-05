@@ -13,5 +13,9 @@ namespace Hollywood_Editor
     /// </summary>
     public partial class App : Application
     {
+        private void GitHubLink_Click(object sender, RoutedEventArgs e)
+        {
+     
+        }   
     }
 }
