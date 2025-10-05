@@ -29,5 +29,9 @@ namespace Hollywood_Editor
         {
 
         }
+
+        private void dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+                    }
     }
 }

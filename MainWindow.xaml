@@ -21,5 +21,9 @@
         <Label x:Name="label_giyhub" Content="GitHub" HorizontalAlignment="Right" Margin="0,514,29,0" VerticalAlignment="Top" Foreground="White" Width="41" Padding="0,0,0,0"/>
         <Label x:Name="label_develop" Content="Developed by Galapogos" HorizontalAlignment="Center" Margin="0,530,0,0" VerticalAlignment="Top" Width="142" Foreground="White" Padding="0,0,0,0" Grid.IsSharedSizeScope="True"/>
         <Image x:Name="___logo_ha_1280x720_png" Margin="12,19,13,472" Source="/logo_ha_1280x720.png" Stretch="Fill"/>
+        <Button x:Name="open_file" Content="Открыть" HorizontalAlignment="Center" Margin="0,117,0,0" VerticalAlignment="Top" Width="154" Height="28" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+        <Button x:Name="save_file" Content="Сохранить" HorizontalAlignment="Center" Margin="0,160,0,0" VerticalAlignment="Top" Width="154" Height="28" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+        <DataGrid x:Name="dataGrid" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="190,390,-659,-1" SelectionChanged="dataGrid_SelectionChanged"/>
     </Grid>
+
 </Window>
