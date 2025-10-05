@@ -8,14 +8,15 @@ using System.Windows;
 
 namespace Hollywood_Editor
 {
-    /// <summary>
-    /// Логика взаимодействия для App.xaml
-    /// </summary>
     public partial class App : Application
     {
-        private void GitHubLink_Click(object sender, RoutedEventArgs e)
+        protected override void OnStartup(StartupEventArgs e)
         {
-     
-        }   
+            base.OnStartup(e);
+
+            // Создаем и показываем существующий MainWindow
+            var mainWindow = new MainWindow();
+            mainWindow.Show();
+        }
     }
 }
