@@ -24,5 +24,10 @@ namespace Hollywood_Editor
         {
             InitializeComponent();
         }
+
+        private void text_logo_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

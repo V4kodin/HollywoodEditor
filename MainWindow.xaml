@@ -5,8 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hollywood_Editor"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        ResizeMode="NoResize"
+        Title="Hollywood Editor" Height="600" Width="850" Icon="/logo.ico">
+    <Grid Margin="0,0,660,0">
+        <Border BorderThickness="1" Margin="-1,-1,0,-1">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF291010" Offset="0.008"/>
+                    <GradientStop Color="#FFAD3838" Offset="0.996"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <Label x:Name="label_version" Content="for  0.8.53EA" HorizontalAlignment="Left" Height="14" Margin="29,514,0,0" VerticalAlignment="Top" Width="106" Foreground="White" RenderTransformOrigin="0.509,0.168" Padding="0,0,0,0"/>
+        </Border>
+        <Label x:Name="text_name" Content="Hollywood Editor" HorizontalAlignment="Center" Margin="0,496,0,0" VerticalAlignment="Top" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Cascadia Code" FontWeight="Bold" FontSize="14" Width="142" Padding="0,0,0,0" Height="14"/>
+        <Label x:Name="label_giyhub" Content="GitHub" HorizontalAlignment="Right" Margin="0,514,29,0" VerticalAlignment="Top" Foreground="White" Width="41" Padding="0,0,0,0"/>
+        <Label x:Name="label_develop" Content="Developed by Galapogos" HorizontalAlignment="Center" Margin="0,530,0,0" VerticalAlignment="Top" Width="142" Foreground="White" Padding="0,0,0,0" Grid.IsSharedSizeScope="True"/>
+        <Image x:Name="___logo_ha_1280x720_png" Margin="12,19,13,472" Source="/logo_ha_1280x720.png" Stretch="Fill"/>
     </Grid>
 </Window>
