@@ -478,6 +478,13 @@ namespace HollywoodEditor.Models
             Character z = JsonConvert.DeserializeObject<Character>(json.ToString());
             if (z != null)
             {
+                // Оптимизиация под версию 0.8.53EA, так как образовались два поля "limit" и "Limit"
+                var limitToken = json.SelectToken("limit") ?? json.SelectToken("Limit");
+                if (limitToken != null)
+                {
+                    z.limit = limitToken.Value<double>();
+                }
+
                 z.isDead = z.deathDate != "01-01-0001";
                 z.ReservDateOfDeath = z.IsDead ? z.deathDate : Now.ToString("dd-MM-yyyy", CultureInfo.InvariantCulture);
                 z.ReservCauseOfDeath = z.causeOfDeath;
@@ -508,7 +515,7 @@ namespace HollywoodEditor.Models
                         WhiteTag whiteTag = new WhiteTag();
                         var in_tag = tag.First();
                         whiteTag.id = in_tag.SelectToken("id")?.Value<string>();
-                        if (whiteTag.Tagtype == Skills.ELSE) //срезаем то что не отслеживаем, ибо нафиг
+                        if (whiteTag.Tagtype == Skills.ELSE)
                             continue;
                         whiteTag.dateAdded = (DateTime)in_tag.SelectToken("dateAdded")?.Value<DateTime>();
                         whiteTag.movieId = (int)in_tag.SelectToken("movieId")?.Value<int>();

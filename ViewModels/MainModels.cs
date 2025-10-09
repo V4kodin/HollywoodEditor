@@ -150,17 +150,13 @@ namespace HollywoodEditor.ViewModels
             }
         }
 
-        // Инициализация коллекции 
         public MainModel()
         {
             Filter_txt = "";
             Filter_studio = "";
             Filter_Prof = "";
             StatusBarText = "Prepared to unzip";
-
-            // Инициализация коллекции как пустые
             Filtered_Obj = new ObservableCollection<Character>();
-
             UnzipResources();
             StatusBarText = "Done";
         }
@@ -193,7 +189,6 @@ namespace HollywoodEditor.ViewModels
             Filtered_Obj = new ObservableCollection<Character>(q);
         }
 
-        //Доработан конвертер @Galapogos
         public async void UnzipResources()
         {
             try
@@ -233,12 +228,10 @@ namespace HollywoodEditor.ViewModels
             }
         }
 
-        // Альтернативный метод распаковки ZIP @Galapogos
         private void ExtractZipFile(string zipPath, string extractPath)
         {
             try
             {
-               
                 System.IO.Compression.ZipFile.ExtractToDirectory(zipPath, extractPath);
             }
             catch (Exception)
@@ -247,15 +240,12 @@ namespace HollywoodEditor.ViewModels
             }
         }
 
-        // Ручная распаковка ZIP (упрощенная версия) @Galapogos
         private void ManualExtractZip(string zipPath, string extractPath)
         {
-           
             if (!Directory.Exists(extractPath))
             {
                 Directory.CreateDirectory(extractPath);
             }
-           
         }
         #region Cmd
         public CommandHandler OpenFileCmd
@@ -268,7 +258,6 @@ namespace HollywoodEditor.ViewModels
                     {
                         if ((string)obj != "OFD")
                         {
-                            // Используем OpenFileDialog вместо OpenFolderDialog для совместимости @Galapogos
                             var ofd = new OpenFileDialog();
                             ofd.ValidateNames = false;
                             ofd.CheckFileExists = false;
@@ -782,7 +771,6 @@ namespace HollywoodEditor.ViewModels
                     z["cash"] = Info.cash;
                     z["influence"] = Info.influence;
 
-                    //milestones
                     foreach (var mil in Info.milestones)
                     {
                         if (z["milestones"][mil.id] != null)
@@ -792,7 +780,6 @@ namespace HollywoodEditor.ViewModels
                             z["milestones"][mil.id]["progress"] = mil.progress;
                         }
                     }
-                    //openedPerks (без ремува)
                     foreach (var item in Info.openedPerks)
                     {
                         var openedPerksArray = (JArray)z["openedPerks"];
@@ -810,7 +797,6 @@ namespace HollywoodEditor.ViewModels
                             openedPerksArray.Add(item);
                         }
                     }
-                    //tags work
                     foreach (var item in Info.tagPool)
                     {
                         var w = JsonConvert.SerializeObject(item);
@@ -831,28 +817,28 @@ namespace HollywoodEditor.ViewModels
                         }
                     }
 
-                    //надо удалить из jtokena 
                     if (Info.tagBank.Count < 1)
                         ((JArray)z["tagBank"]).Clear();
 
-                    //characters
                     foreach (Character chr in Info.characters)
                     {
-                        if (chr.WasChanged(Info.Now))
+                        var a = z["characters"];
+                        JToken b = null;
+                        foreach (var token in a)
                         {
-                            var a = z["characters"];
-                            JToken b = null;
-                            foreach (var token in a)
+                            if (token["id"]?.Value<int>() == chr.id)
                             {
-                                if (token["id"]?.Value<int>() == chr.id)
-                                {
-                                    b = token;
-                                    break;
-                                }
+                                b = token;
+                                break;
                             }
-                            if (b != null)
-                            {
-                                b["limit"] = chr.limit;
+                        }
+                        if (b != null)
+                        {
+                            b["limit"] = chr.limit;
+                            b["Limit"] = chr.limit; //С момента версии 0.8.52EA/0.8.53EA была добавлена дополнительная строка "Limit"
+
+                            if (chr.WasChanged(Info.Now))
+                            { //Оптимизировал под новую версию 0.8.534EA
                                 b["mood"] = chr.mood;
                                 b["attitude"] = chr.attitude;
                                 b["birthDate"] = chr.birthDate;
@@ -862,7 +848,6 @@ namespace HollywoodEditor.ViewModels
                                 b["causeOfDeath"] = chr.causeOfDeath;
                                 if (chr.CustomNameWasSetted)
                                     b["customName"] = chr.MyCustomName;
-                                //contract
                                 var cnt = b["contract"];
                                 if (cnt != null)
                                 {
@@ -888,19 +873,17 @@ namespace HollywoodEditor.ViewModels
                                         b["contract"] = JToken.Parse(JsonConvert.SerializeObject(chr.contract));
                                     }
                                 }
-                                //proffessions
                                 var prof = b["professions"];
                                 if (prof != null && prof.HasValues)
                                 {
                                     prof[chr.professions.Name] = chr.professions.Value;
                                 }
-                                //labels
                                 var lbl = (JArray)b["labels"];
                                 if (lbl != null)
                                 {
                                     if (chr.labels != null)
                                     {
-                                        foreach (var lablel in chr.labels) //эт на добавление
+                                        foreach (var lablel in chr.labels)
                                         {
                                             bool exists = false;
                                             foreach (var x in lbl)
@@ -917,7 +900,7 @@ namespace HollywoodEditor.ViewModels
                                             }
                                         }
                                         List<JToken> torem = new List<JToken>();
-                                        foreach (var lablel in lbl) //эт на удаление
+                                        foreach (var lablel in lbl)
                                         {
                                             if (!chr.labels.Contains(lablel.ToString()))
                                             {
@@ -930,13 +913,12 @@ namespace HollywoodEditor.ViewModels
                                         }
                                     }
                                 }
-                                //whiteTagsNew
                                 var wtgs = b["whiteTagsNEW"];
                                 if (wtgs != null)
                                 {
                                     if (chr.whiteTagsNEW != null)
                                     {
-                                        foreach (var whiteTag in chr.whiteTagsNEW) //эт на добавление
+                                        foreach (var whiteTag in chr.whiteTagsNEW)
                                         {
                                             bool exists = false;
                                             foreach (JProperty prop in wtgs.Children<JProperty>())
@@ -965,7 +947,7 @@ namespace HollywoodEditor.ViewModels
                                                     break;
                                                 }
                                             }
-                                            if (!exists) //нету
+                                            if (!exists)
                                             {
                                                 var prop = new JProperty(whiteTag.id);
                                                 prop.Value = JToken.Parse(JsonConvert.SerializeObject(whiteTag));
@@ -973,7 +955,7 @@ namespace HollywoodEditor.ViewModels
                                             }
                                         }
                                         List<JProperty> torem = new List<JProperty>();
-                                        foreach (JProperty whitetg in wtgs.Children<JProperty>()) //эт на удаление
+                                        foreach (JProperty whitetg in wtgs.Children<JProperty>())
                                         {
                                             if (!chr.whiteTagsNEW.Any(t => t.id == whitetg.Name))
                                             {

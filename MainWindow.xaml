@@ -395,7 +395,7 @@
                         </Border>
                         <Label Content="Name" Grid.Row="0" Grid.Column="1"/>
                         <TextBox Text="{Binding SelectedChar.MyCustomName}" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="3"
-                               HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Tag="STR" Foreground="White"/>
+                               HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Tag="STR" Foreground="Black"/>
                         <Label Content="Studio Id" Grid.Row="1" Grid.Column="1"/>
                         <Grid Grid.Row="1" Grid.Column="2" Margin="5,0,5,0" Height="20" Grid.ColumnSpan="3">
                             <Grid.ColumnDefinitions>
@@ -430,10 +430,10 @@
                         </Grid>
                         <Label Content="Mood" Grid.Row="2" Grid.Column="1" />
                         <TextBox Text="{Binding SelectedChar.mood, StringFormat={}{0:0.00}}" Grid.Row="2" Grid.Column="2"  
-                                  Tag="LMT" Foreground="White"/>
+                                  Tag="LMT" Foreground="Black"/>
                         <Label Content="Attitude" Grid.Row="2" Grid.Column="3"/>
                         <TextBox Text="{Binding SelectedChar.attitude, StringFormat={}{0:0.00}}" Grid.Row="2" Grid.Column="4" 
-                                  Tag="LMT" Foreground="White"/>
+                                  Tag="LMT" Foreground="Black"/>
                     </Grid>
                 </Border>
                 <Border Grid.Row="1" BorderThickness="1.5" BorderBrush="DarkGray" CornerRadius="5" Margin="5,5,0,0">
@@ -465,17 +465,17 @@
                                  TextTrimming="CharacterEllipsis" VerticalAlignment="Center" ToolTip="{Binding RelativeSource={RelativeSource Self}, Path=Text}" TextAlignment="Left" Foreground="White"/>
                         <Label Content="Age"  Grid.Row="0" Grid.Column="2"/>
                         <TextBox Text="{Binding SelectedChar.Age}" Grid.Row="0" Grid.Column="3" 
-                                   Tag="AGE" Foreground="White"/>
+                                   Tag="AGE" Foreground="Black"/>
                         <Label Content="Birth" Grid.Row="1" Grid.Column="2"/>
                         <TextBlock Text="{Binding SelectedChar.GetBirthDate, Converter={StaticResource myDateConverter}}" Grid.Row="1" Grid.Column="3"
                                    VerticalAlignment="Center" Margin="5,0" Foreground="White"/>
 
                         <Label Content="Skill" Grid.Row="2" Grid.Column="2"/>
                         <TextBox Text="{Binding SelectedChar.professions.Value, StringFormat={}{0:0.00}}" Grid.Row="2" Grid.Column="3" 
-                                   Tag="LMT" Foreground="White"/>
+                                   Tag="LMT" Foreground="Black"/>
                         <Label Content="Limit" Grid.Row="1" Grid.Column="0" Margin="5,3,5,5"/>
                         <TextBox Text="{Binding SelectedChar.limit, StringFormat={}{0:0.0}}" Grid.Row="1" Grid.Column="1" 
-                                   Tag="LMT" Margin="5,3,6,5" Foreground="White"/>
+                                   Tag="LMT" Margin="5,3,6,5" Foreground="Black"/>
                     </Grid>
                 </Border>
                 <Border Grid.Row="2" BorderThickness="1.5" BorderBrush="DarkGray" CornerRadius="5" Margin="5,5,0,0">
@@ -530,17 +530,17 @@
                         <TextBlock Grid.Row="1" Grid.Column="3" Text="{Binding SelectedChar.contract.dateOfEnding, Converter={StaticResource myDateConverter}}" VerticalAlignment="Center" Margin="5,0" Foreground="White"/>
                         <Label Grid.Row="2" Grid.Column="0" Content="Years"/>
                         <TextBox Text="{Binding SelectedChar.contract.amount}" Grid.Row="2" Grid.Column="1" 
-                                  Tag="INT" Foreground="White"/>
+                                  Tag="INT" Foreground="Black"/>
                         <Label Grid.Row="2" Grid.Column="2" Content="Init fee"/>
                         <TextBox Text="{Binding SelectedChar.contract.initialFee}" Grid.Row="2" Grid.Column="3" 
-                                  Tag="INT" Foreground="White"/>
+                                  Tag="INT" Foreground="Black"/>
                         <Label Grid.Row="3" Grid.Column="0" Content="M/s">
                             <Label.ToolTip>
                                 <TextBlock Text="Mouth salary" Padding="0"/>
                             </Label.ToolTip>
                         </Label>
                         <TextBox Text="{Binding SelectedChar.contract.monthlySalary}" Grid.Row="3" Grid.Column="1"
-                                  Tag="INT" Foreground="White">
+                                  Tag="INT" Foreground="Black">
                             <TextBox.ToolTip>
                                 <TextBlock Text="Mouth salary" Padding="0"/>
                             </TextBox.ToolTip>
@@ -551,7 +551,7 @@
                             </Label.ToolTip>
                         </Label>
                         <TextBox Text="{Binding SelectedChar.contract.weightToSalary}" Grid.Row="3" Grid.Column="3" 
-                                  Tag="INT" Foreground="White">
+                                  Tag="INT" Foreground="Black">
                             <TextBox.ToolTip>
                                 <TextBlock Text="Weight salary" Padding="0"/>
                             </TextBox.ToolTip>
