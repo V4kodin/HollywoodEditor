@@ -8,11 +8,11 @@ using System.Windows;
 // набор атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
 // связанные со сборкой.
 [assembly: AssemblyTitle("Hollywood Editor")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("An editor for safely editing saves in Hollywood Animal")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Hollywood Editor")]
-[assembly: AssemblyCopyright("Copyright ©  2025")]
+[assembly: AssemblyProduct("@HollyJson")]
+[assembly: AssemblyCopyright("Copyright by Galapogos ©  2025")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -48,5 +48,6 @@ using System.Windows;
 //      Номер сборки
 //      Номер редакции
 //
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("0.2.1.0")]
+[assembly: AssemblyFileVersion("0.2.1.0")]
+[assembly: NeutralResourcesLanguage("ru")]

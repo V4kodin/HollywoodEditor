@@ -1,22 +1,50 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
+using System.IO;
+using System.IO.Compression;
 using System.Windows;
 
-namespace Hollywood_Editor
+namespace HollywoodEditor
 {
     public partial class App : Application
     {
+        public static string PathToExe = AppDomain.CurrentDomain.BaseDirectory;
+
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
+            EnsureResourcesUnpacked();
+        }
 
-            // Создаем и показываем существующий MainWindow
-            var mainWindow = new MainWindow();
-            mainWindow.Show();
+        private void EnsureResourcesUnpacked()
+        {
+            string resDir = Path.Combine(PathToExe, "Resources");
+            string profilesDir = Path.Combine(resDir, "Profiles");
+            string yzFile = Path.Combine(resDir, "Profiles.yz");
+
+            if (Directory.Exists(profilesDir))
+                return;
+
+            // если архива нет — предупредим, чтобы пользователь понимал
+            if (!File.Exists(yzFile))
+            {
+                MessageBox.Show(
+                    "Resource archive not found (Profiles.yz).\n" +
+                    "Character icons will not be displayed..",
+                    "Attention", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            try
+            {
+          
+                ZipFile.ExtractToDirectory(yzFile, resDir);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    $"Error unpacking resources:\n{ex.Message}",
+                    "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }
