@@ -149,12 +149,18 @@ namespace HollywoodEditor.ViewModels
                 SetSearched();
             }
         }
+
+        // Инициализация коллекции 
         public MainModel()
         {
             Filter_txt = "";
             Filter_studio = "";
             Filter_Prof = "";
             StatusBarText = "Prepared to unzip";
+
+            // Инициализация коллекции как пустые
+            Filtered_Obj = new ObservableCollection<Character>();
+
             UnzipResources();
             StatusBarText = "Done";
         }
@@ -206,7 +212,6 @@ namespace HollywoodEditor.ViewModels
                         if (!Directory.Exists(local_dir))
                         {
                             StatusBarText = "Start extracting Localization";
-                            // Используем альтернативный метод распаковки
                             ExtractZipFile(Path.Combine(mi, "Localization.yz"), local_dir);
                             StatusBarText = "End extracting Localization";
                         }

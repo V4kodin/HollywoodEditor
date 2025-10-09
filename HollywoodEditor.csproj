@@ -199,12 +199,13 @@
     <PackageReference Include="Newtonsoft.Json">
       <Version>13.0.4</Version>
     </PackageReference>
-    <PackageReference Include="NumericUpDown">
-      <Version>3.0.2</Version>
-    </PackageReference>
     <PackageReference Include="PropertyChanged.Fody">
       <Version>4.1.0</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\github-mark-white.png" />
+    <Resource Include="Resources\gitverse_logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

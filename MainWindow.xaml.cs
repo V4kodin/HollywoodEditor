@@ -12,7 +12,12 @@ namespace HollywoodEditor
         public MainWindow()
         {
             InitializeComponent();
+            // Обработчик для отладки ошибок привязки
             Style = (Style)FindResource(typeof(Window));
+            System.Windows.Data.BindingOperations.SetBinding(
+                this,
+                System.Windows.Controls.Primitives.Selector.SelectedItemProperty,
+                new System.Windows.Data.Binding());
             //string mi = $"{App.PathToExe}Resources";
             //string local_dir = $"{mi}\\Localization\\";
             //string path_to_loc = $"{mi}\\Localization.yz";
@@ -23,8 +28,6 @@ namespace HollywoodEditor
             //ZipFile.CreateFromDirectory("C:\\Users\\bigja\\source\\repos\\HollyJson\\Resources\\Localization", "C:\\Users\\bigja\\source\\repos\\HollyJson\\Resources\\Localization.yz");
         }
 
-        //на ввод посимвольно
-        //целык
         private void NumberValidation(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex(@"[^0-9]");
@@ -167,6 +170,27 @@ namespace HollywoodEditor
                     break;
                 default:
                     break;
+            }
+        }
+
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void GitHubLogo_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+                {
+                    FileName = "https://github.com/Nello2/HollywoodEditor",
+                    UseShellExecute = true
+                });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Не удалось открыть ссылку: {ex.Message}", "Ошибка",
+                                MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }
