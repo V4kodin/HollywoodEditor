@@ -3,7 +3,7 @@
 </div>
 <div align="center">
   <a href="https://github.com/Nello2">
-    <img alt="GitHub" src="https://img.shields.io/badge/GitHub-black?style=for-the-badge&logo=github"></a><a href="https://gitverse.ru/Galapogos/HollywoodEditor"><img alt="Static Badge" src="https://img.shields.io/badge/GitVerse-blue?style=for-the-badge&logo=git&logoColor=white">
+    <img alt="GitHub" src="https://img.shields.io/badge/GitHub-black?style=for-the-badge&logo=github"></a><a href="https://gitverse.ru/Galapogos/HollywoodEditor"><img alt="Static Badge" src="https://img.shields.io/badge/GitVerse-blue?style=for-the-badge&logo=git&logoColor=white"><a href="https://www.playground.ru/hollywood_animal/cheat/hollywood_editor_obnovlennyj_redaktor_sohranenij_0_8_54ea_galapogos_bioyakor-1797123"><img alt="Static Badge" src="https://img.shields.io/badge/Playground-red?style=for-the-badge&logo=precommit&logoColor=white">
 </div>
 <p align="center">
   <a href="https://www.gnu.org/licenses/agpl-3.0">
