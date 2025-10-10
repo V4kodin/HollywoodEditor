@@ -75,7 +75,7 @@
                        FontSize="10"
                        Margin="0,0,0,5" Height="15" FontFamily="Consolas"/>
 
-            <TextBlock Text="Founder BioNoob" 
+            <TextBlock Text="Founder BioNoob(Yakor)" 
                        Foreground="White" 
                        HorizontalAlignment="Center"
                        FontSize="10"
@@ -91,7 +91,7 @@
                    Source="/Resources/gitverse_logo.png"
                    Stretch="Fill" 
                    Cursor="Hand"
-                   MouseLeftButtonDown="GitHubLogo_MouseLeftButtonDown" Margin="0,10,0,0"/>
+                   MouseLeftButtonDown="GitVers_MouseLeftButtonDown" Margin="0,10,0,0"/>
 
         </StackPanel>
 
@@ -390,9 +390,9 @@
                             <ColumnDefinition Width="60"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <Border Grid.RowSpan="3" Margin="5">
+                   <!-- <Border Grid.RowSpan="3" Margin="5">
                             <Image Source="{Binding SelectedChar.ImgPath}" Stretch="Fill" />
-                        </Border>
+                        </Border> --> <!-- Неактивно -->
                         <Label Content="Name" Grid.Row="0" Grid.Column="1"/>
                         <TextBox Text="{Binding SelectedChar.MyCustomName}" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="3"
                                HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Tag="STR" Foreground="Black"/>

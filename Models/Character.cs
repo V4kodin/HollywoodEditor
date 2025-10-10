@@ -266,6 +266,8 @@ namespace HollywoodEditor.Models
             calcages = true;
             Age = age;
         }
+        
+        /// Неактивно, не удалось распаковать ассеты    
         public string ImgPath
         {
             get
@@ -306,7 +308,7 @@ namespace HollywoodEditor.Models
                         a += "LIEUT_";
                         break;
                 }
-
+     
                 if (gender == 1)
                     a += "F_";
                 else
@@ -323,6 +325,7 @@ namespace HollywoodEditor.Models
                 return a;
             }
         }
+       
         public List<string> AvalibaleSkills { get; set; }
         public void SetAvSkills()
         {

@@ -835,7 +835,7 @@ namespace HollywoodEditor.ViewModels
                         if (b != null)
                         {
                             b["limit"] = chr.limit;
-                            b["Limit"] = chr.limit; //С момента версии 0.8.52EA/0.8.53EA была добавлена дополнительная строка "Limit"
+                            b["Limit"] = chr.limit; //С момента версии 0.8.50EA была добавлена дополнительная строка "Limit"
 
                             if (chr.WasChanged(Info.Now))
                             { //Оптимизировал под новую версию 0.8.534EA

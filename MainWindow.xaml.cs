@@ -193,5 +193,22 @@ namespace HollywoodEditor
                                 MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+        private void GitVers_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+                {
+                    FileName = "https://gitverse.ru/Galapogos/HollywoodEditor",
+                    UseShellExecute = true
+                });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Не удалось открыть ссылку: {ex.Message}", "Ошибка",
+                                MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+        }
     }
 }
