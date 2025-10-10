@@ -7,7 +7,8 @@
 </div>
 
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
-
+[![Russian Version](https://img.shields.io/badge/version-russian-red)](https://gitverse.ru/Galapogos/HollywoodEditor)
+[![English Version](https://img.shields.io/badge/version-english-green)](https://telegra.ph/Hollywood-Editor-10-10)
 
 # Hollywood Editor
 Обновленный инструмент для безопасного редактирования файлов сохранений игры Hollywood Animal.
