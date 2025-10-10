@@ -1,0 +1,87 @@
+# Hollywood Editor
+An updated tool for safe editing of Hollywood Animal game save files.
+
+## Preface
+This project is the successor to the [HollyJson](https://github.com/BioNoob/HollyJson?ysclid=mgk0zm7rb6682119807) project, originally developed by [BioNoob (Yakor)](https://github.com/BioNoob).
+After the original codebase was transferred and active development by the original author ceased, the project was taken over for maintenance and further development by [myself](https://github.com/Nello2).
+
+## Features & Functionality
+
+*   **Save File Editing:** Allows users to open and modify save files in JSON format.
+*   **Character Management:** Provides functionality to view, filter, and edit character attributes, including:
+    *   Basic Info: Name, Age, Portrait.
+    *   Profession: Changing a character's profession and its related characteristics.
+    *   Attributes: Mood, Attitude, Limit.
+    *   Contract Details: Modifying contract terms, salary, signing date, etc.
+    *   Skills & Traits: Adding or removing skills and traits.
+    *   Studio Affiliation: Changing the studio a character is attached to.
+*   **Data Validation:** Implements input validation for fields like Age, floating-point numbers, and strings to ensure data integrity.
+*   **Localization Support:** Reads localization data from JSON files to display translated names and descriptions.
+*   **Resource Management:** Extracts resource files (images, localization) from compressed archives upon startup.
+
+## Technology Stack
+
+*   **C#:** Primary programming language.
+*   **WPF:** Windows Presentation Foundation for the user interface.
+*   **Newtonsoft.Json:** Library for JSON serialization and deserialization.
+*   **PropertyChanged.Fody:** Library that automatically implements the `INotifyPropertyChanged` interface.
+*   **System.IO.Compression:** Used for extracting resources from archives.
+
+## Prerequisites
+
+*   Windows Operating System
+*   .NET Framework 4.7.2 or newer (required for WPF) - typically pre-installed on modern Windows versions.
+
+## Installation Instructions
+
+1.  Download the latest release from the [GitHub repository](https://github.com/Nello2/HollywoodEditor).
+2.  Extract the downloaded archive to your chosen directory.
+3.  Run the `HollywoodEditor.exe` executable.
+
+## Usage Guide
+
+1.  **Opening a Save File:**
+    *   Click the "Open File" button.
+    *   Select "OFD" to open a save file. Save files are located in `%localappdata%Low\Weappy\Hollywood Animal\Saves\Profiles`.
+
+2.  **Selecting Locale:**
+    *   Click the "Open File" button and choose the directory containing the locale JSON files.
+    *   Navigate to your Hollywood Animal installation directory, then to `Hollywood Animal_Data\StreamingAssets\Data\Localization\RUS`.
+    *   Select the `RUS` folder containing the localization files.
+    *   Click "Select Folder".
+
+3.  **Filtering Characters:**
+    *   Use the `Filter_studio` dropdown to filter characters by their affiliated studio.
+    *   Use the `Filter_Prof` dropdown to filter characters by their profession.
+    *   Enter text in the `Filter_txt` text box to search for characters by name.
+    *   Use the `ShowOnlyTalent` checkbox to display only talent (characters).
+    *   Use the `ShowOnlyDead` checkbox to display only deceased characters.
+    *   Use the `ShowWithDead` checkbox to include deceased characters in the results.
+
+4.  **Editing Character Attributes:**
+    *   Select a character from the list.
+    *   Modify the attributes in the character details section.
+    *   Text boxes use the Tag property for input validation:
+        *   `STR`: Allows string input.
+        *   `INT`: Allows integer number input.
+        *   `AGE`: Allows integer number input up to 150.
+        *   `DBL`: Allows floating-point number input.
+        *   `LMT`: Allows floating-point number input between 0 and 1.
+
+5.  **Adding/Removing Skills and Traits:**
+    *   Select a character from the list.
+    *   To add a skill, select it from the dropdown list and click the "+" button.
+    *   To remove a skill, click the "X" button next to the skill in the list.
+    *   To add a trait, select it from the dropdown list and click the "+" button.
+    *   To remove a trait, click the "X" button next to the trait in the list.
+
+6.  **Saving Changes:**
+    *   Click the "Save" button.
+    *   Choose a location to save the modified save file. It is recommended to create backups of your original save files.
+
+## Contribution Guidelines
+
+1.  Fork the repository.
+2.  Create a new branch for your feature or bug fix.
+3.  Implement your changes, ensuring code quality and adding appropriate tests.
+4.  Submit a pull request with a clear description of your changes.
