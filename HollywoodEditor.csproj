@@ -135,6 +135,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="LICENSE" />
     <None Include="main.ico.bak" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
@@ -145,7 +146,7 @@
     <None Include="Resources\0_8_21.json" />
     <None Include="Resources\backgrnd.jpg.back" />
     <Resource Include="Resources\Jura-SemiBold.ttf" />
-    <None Include="Resources\Localization.yz" />
+    <Content Include="Resources\Localization.yz" />
     <None Include="Resources\Profiles.yz" />
     <None Include="Resources\оу.json" />
   </ItemGroup>
@@ -169,7 +170,6 @@
     <Resource Include="Resources\user.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="LICENSE.txt" />
     <Resource Include="main.ico" />
   </ItemGroup>
   <ItemGroup>

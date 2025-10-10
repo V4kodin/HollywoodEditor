@@ -17,33 +17,32 @@ namespace HollywoodEditor
 
         private void EnsureResourcesUnpacked()
         {
-            string resDir = Path.Combine(PathToExe, "Resources");
-            string profilesDir = Path.Combine(resDir, "Profiles");
-            string yzFile = Path.Combine(resDir, "Profiles.yz");
+            //string resDir = Path.Combine(PathToExe, "Resources");
+            //string profilesDir = Path.Combine(resDir, "Profiles");
+            //string yzFile = Path.Combine(resDir, "Profiles.yz");
 
-            if (Directory.Exists(profilesDir))
+       //     if (Directory.Exists(profilesDir))
                 return;
 
             // если архива нет — предупредим, чтобы пользователь понимал
-            if (!File.Exists(yzFile))
-            {
-                MessageBox.Show(
-                    "Resource archive not found (Profiles.yz).\n" +
-                    "Character icons will not be displayed..",
-                    "Attention", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
-
+            //if (!File.Exists(yzFile))
+            //{
+            //    MessageBox.Show(
+            //        "Resource archive not found (Profiles.yz).\n" +
+            //        "Character icons will not be displayed..",
+            //        "Attention", MessageBoxButton.OK, MessageBoxImage.Warning);
+            //    return;
+            //}
             try
             {
           
-                ZipFile.ExtractToDirectory(yzFile, resDir);
+               // ZipFile.ExtractToDirectory(yzFile, resDir);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(
-                    $"Error unpacking resources:\n{ex.Message}",
-                    "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+         //       MessageBox.Show(
+         //         $"Error unpacking resources:\n{ex.Message}",
+         //           "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }
