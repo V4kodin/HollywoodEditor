@@ -5,10 +5,17 @@
   <a href="https://github.com/Nello2">
     <img alt="GitHub" src="https://img.shields.io/badge/GitHub-black?style=for-the-badge&logo=github"></a><a href="https://gitverse.ru/Galapogos/HollywoodEditor"><img alt="Static Badge" src="https://img.shields.io/badge/GitVerse-blue?style=for-the-badge&logo=git&logoColor=white">
 </div>
-
-[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
-[![Russian Version](https://img.shields.io/badge/version-russian-red)](https://gitverse.ru/Galapogos/HollywoodEditor)
-[![English Version](https://img.shields.io/badge/version-english-green)](https://telegra.ph/Hollywood-Editor-10-10)
+<p align="center">
+  <a href="https://www.gnu.org/licenses/agpl-3.0">
+    <img src="https://img.shields.io/badge/License-AGPL_v3-blue.svg" alt="License: AGPL v3">
+  </a>
+  <a href="https://gitverse.ru/Galapogos/HollywoodEditor">
+    <img src="https://img.shields.io/badge/version-russian-red" alt="Russian Version">
+  </a>
+  <a href="https://telegra.ph/Hollywood-Editor-10-10">
+    <img src="https://img.shields.io/badge/version-english-green" alt="English Version">
+  </a>
+</p>
 
 # Hollywood Editor
 Обновленный инструмент для безопасного редактирования файлов сохранений игры Hollywood Animal.
