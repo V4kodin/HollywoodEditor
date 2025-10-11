@@ -143,12 +143,10 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <None Include="README.md" />
-    <None Include="Resources\0_8_21.json" />
     <None Include="Resources\backgrnd.jpg.back" />
     <Resource Include="Resources\Jura-SemiBold.ttf" />
-    <Content Include="Resources\Localization.yz" />
-    <None Include="Resources\Profiles.yz" />
-    <None Include="Resources\оу.json" />
+    <None Include="Resources\Localization.zip" />
+    <None Include="Resources\Profiles.zip" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -161,7 +159,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\arrow_up.png" />
-    <Resource Include="Resources\backgrnd.png" />
     <Resource Include="Resources\minus.png" />
     <Resource Include="Resources\ofd.png" />
     <Resource Include="Resources\plus.png" />
@@ -193,9 +190,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="FodyHelpers">
-      <Version>6.9.3</Version>
-    </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
       <Version>13.0.4</Version>
     </PackageReference>
@@ -206,6 +200,9 @@
   <ItemGroup>
     <Resource Include="Resources\github-mark-white.png" />
     <Resource Include="Resources\gitverse_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\arrow_up_black.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
