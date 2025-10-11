@@ -188,7 +188,11 @@ namespace HollywoodEditor.ViewModels
             StatusBarText = $"Filtered {q.Count()} chars";
             Filtered_Obj = new ObservableCollection<Character>(q);
         }
-
+        // UnzipResources полностью переписан, так как изначально задумывалось, что локали будут использоваться напрямую через .yz,
+        // что соответственное создавало своеобразные сложности. 
+        // Пришлось полностью менять логику на распаковку .zip файлов.
+        // Улучшена совместимость для 0.8.55EA
+        // Вдобавок пришлоось отказаться от иконок персонажей, так как занимало очень много место.
         public async void UnzipResources()
         {
             try
@@ -199,7 +203,7 @@ namespace HollywoodEditor.ViewModels
                     string local_dir = Path.Combine(mi, "Localization");
                     string prof_dir = Path.Combine(mi, "Profiles");
 
-                    bool arch_loc_exist = File.Exists(Path.Combine(mi, "Localization.yz"));
+                    bool arch_loc_exist = File.Exists(Path.Combine(mi, "Localization.zip"));
                     bool arch_prof_exits = File.Exists(Path.Combine(mi, "Profiles.yz"));
 
                     if (arch_loc_exist)
@@ -207,7 +211,7 @@ namespace HollywoodEditor.ViewModels
                         if (!Directory.Exists(local_dir))
                         {
                             StatusBarText = "Start extracting Localization";
-                            ExtractZipFile(Path.Combine(mi, "Localization.yz"), local_dir);
+                            ExtractZipFile(Path.Combine(mi, "Localization.zip"), local_dir);
                             StatusBarText = "End extracting Localization";
                         }
                         StatusBarText = "Set Localization";
