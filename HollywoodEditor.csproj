@@ -145,8 +145,9 @@
     <None Include="README.md" />
     <None Include="Resources\backgrnd.jpg.back" />
     <Resource Include="Resources\Jura-SemiBold.ttf" />
-    <None Include="Resources\Localization.zip" />
-    <None Include="Resources\Profiles.zip" />
+    <Content Include="Resources\Localization.zip">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
