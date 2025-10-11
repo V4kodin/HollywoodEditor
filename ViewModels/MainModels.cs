@@ -1,4 +1,4 @@
-﻿using HollywoodEditor.Models;
+using HollywoodEditor.Models;
 using Microsoft.Win32;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
