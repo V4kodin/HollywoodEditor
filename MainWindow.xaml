@@ -8,8 +8,9 @@
         xmlns:numericupdownlib="clr-namespace:NumericUpDownLib;assembly=NumericUpDownLib"
         mc:Ignorable="d"
         Icon="/main.ico"
+        ResizeMode="CanMinimize"
+        WindowStartupLocation="CenterScreen"
         Title="Hollywood Editor" Height="790" Width="880" MinWidth="850">
-
     <Window.DataContext>
         <local:MainModel/>
     </Window.DataContext>
@@ -390,9 +391,9 @@
                             <ColumnDefinition Width="60"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                   <!-- <Border Grid.RowSpan="3" Margin="5">
+                        <Border Grid.RowSpan="3" Margin="5">
                             <Image Source="{Binding SelectedChar.ImgPath}" Stretch="Fill" />
-                        </Border> --> <!-- Неактивно -->
+                        </Border>
                         <Label Content="Name" Grid.Row="0" Grid.Column="1"/>
                         <TextBox Text="{Binding SelectedChar.MyCustomName}" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="3"
                                HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Tag="STR" Foreground="Black"/>
@@ -453,6 +454,7 @@
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions >
                             <ColumnDefinition Width="60"/>
@@ -476,6 +478,20 @@
                         <Label Content="Limit" Grid.Row="1" Grid.Column="0" Margin="5,3,5,5"/>
                         <TextBox Text="{Binding SelectedChar.limit, StringFormat={}{0:0.0}}" Grid.Row="1" Grid.Column="1" 
                                    Tag="LMT" Margin="5,3,6,5" Foreground="Black"/>
+
+                        <CheckBox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Content="Is Dead" VerticalAlignment="Center"
+                              HorizontalAlignment="Left" IsChecked="{Binding SelectedChar.IsDead}" Foreground="White" Margin="30,0,0,0">
+                            <CheckBox.Style>
+                                <Style TargetType="CheckBox">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding SelectedChar}" Value="{x:Null}">
+                                            <Setter Property="IsEnabled" Value="False"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </CheckBox.Style>
+                        </CheckBox>
+
                     </Grid>
                 </Border>
                 <Border Grid.Row="2" BorderThickness="1.5" BorderBrush="DarkGray" CornerRadius="5" Margin="5,5,0,0">
@@ -624,7 +640,7 @@
                                                     Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type Window}}, Path=DataContext.MoveTraitUpCmd}" 
                                                     CommandParameter="{Binding }">
                                                 <Button.Content>
-                                                    <Image Source="/Resources/arrow_up.png" Margin="1,0,0,0"/>
+                                                    <Image Source="/Resources/arrow_up_black.png" Margin="1,0,0,0"/>
                                                 </Button.Content>
                                             </Button>
                                             <TextBlock Text="{Binding ., Converter={StaticResource LocaleConverter}}" TextWrapping="Wrap" Grid.Column="1" Margin="5,0,5,0"
