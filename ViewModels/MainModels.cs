@@ -695,6 +695,24 @@ namespace HollywoodEditor.ViewModels
                 Info.openedPerks = new ObservableCollection<string>(op_d);
                 Info.AvailablePerks = new ObservableCollection<string>(stateJson.PreGenPerks.Except(Info.openedPerks).ToList());
 
+                StatusBarText = "Loading studies...";
+                List<Study> studies = new List<Study>();
+                var studiesToken = aa.SelectToken("technologies");
+                if (studiesToken != null)
+                {
+                    foreach (var item in studiesToken.Children())
+                    {
+                        var study = new Study()
+                        {
+                            id = item.SelectToken("id")?.Value<int>() ?? 0,
+                            configId = item.SelectToken("configId")?.Value<string>() ?? string.Empty,
+                            owned = item.SelectToken("owned")?.Value<bool>() ?? false
+                        };
+                        studies.Add(study);
+                    }
+                }
+                Info.studies = new ObservableCollection<Study>(studies);
+
                 StatusBarText = "Loading closed tags...";
                 op_d = new List<string>();
                 op_p = aa.SelectToken("tagBank")?.Children();
@@ -799,6 +817,21 @@ namespace HollywoodEditor.ViewModels
                         if (!exists)
                         {
                             openedPerksArray.Add(item);
+                        }
+                    }
+                    var techList = z["technologies"];
+                    if (techList != null && Info.studies != null)
+                    {
+                        var techById = techList
+                            .Where(t => t["id"] != null)
+                            .GroupBy(t => t["id"].Value<int>())
+                            .ToDictionary(t => t.Key, t => t.First());
+                        foreach (var study in Info.studies)
+                        {
+                            if (techById.TryGetValue(study.id, out JToken tech))
+                            {
+                                tech["owned"] = study.owned;
+                            }
                         }
                     }
                     foreach (var item in Info.tagPool)

@@ -24,6 +24,14 @@ namespace HollywoodEditor.Models
     }
 
     [AddINotifyPropertyChangedInterface]
+    public class Study
+    {
+        public int id { get; set; }
+        public string configId { get; set; }
+        public bool owned { get; set; }
+    }
+
+    [AddINotifyPropertyChangedInterface]
     public class stateJson
     {
         public static DateTime GameStartTime => new DateTime(1929, 1, 1);
@@ -163,6 +171,7 @@ namespace HollywoodEditor.Models
 
         public ObservableCollection<string> AvailablePerks { get; set; }
         public ObservableCollection<string> openedPerks { get; set; }
+        public ObservableCollection<Study> studies { get; set; }
 
         /// <summary>
         /// Закрытые тэги
