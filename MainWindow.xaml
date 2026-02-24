@@ -196,7 +196,7 @@
                             </Button>
                             <Button Padding="5,0,5,0" Command="{Binding ShowTechsCmd}" Margin="5,0,5,0" Width="110">
                                 <Button.Content>
-                                    <TextBlock Padding="0" TextAlignment="Center" TextTrimming="CharacterEllipsis" Text="Show closed Techs"/>
+                                    <TextBlock Padding="0" TextAlignment="Center" TextTrimming="CharacterEllipsis" Text="Show studies"/>
                                 </Button.Content>
                             </Button>
                             <Button Padding="5,0,5,0" Command="{Binding ShowTagsCmd}" Margin="5,0,0,0" Width="110">
@@ -765,6 +765,40 @@
                                     <DataTemplate DataType="local:Character">
                                         <TextBlock Text="{Binding ., Converter={StaticResource LocaleConverter}}" TextWrapping="Wrap" Margin="5,0,10,5"
                                             HorizontalAlignment="Right" Padding="0" TextAlignment="Right"/>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </ScrollViewer>
+                    </Grid>
+                </Border>
+                <Border Grid.Row="6" BorderThickness="1.5" BorderBrush="DarkGray" CornerRadius="5" Margin="5,5,0,20">
+                    <Border.Style>
+                        <Style TargetType="Border">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ShowTechs}" Value="True">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Border.Style>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <DockPanel Grid.Row="0" Margin="5,3,5,3">
+                            <TextBlock Text="Studies" Foreground="White" FontWeight="Bold"/>
+                            <Button Command="{Binding UnlockTechsCmd}" HorizontalAlignment="Right" Margin="8,0,0,0" Padding="8,0"
+                                    AutomationProperties.Name="Unlock all studies">Unlock all studies</Button>
+                        </DockPanel>
+                        <ScrollViewer Grid.Row="1" Margin="5,0,5,5">
+                            <ItemsControl ItemsSource="{Binding Info.studies}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <CheckBox IsChecked="{Binding owned}" Margin="0,2,0,2" Foreground="White">
+                                            <TextBlock Text="{Binding configId}" />
+                                        </CheckBox>
                                     </DataTemplate>
                                 </ItemsControl.ItemTemplate>
                             </ItemsControl>
