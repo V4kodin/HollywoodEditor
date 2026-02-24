@@ -56,7 +56,7 @@
 ## Как получить exe?
 
 ### Вариант 1 (проще): скачать готовый
-Скачайте архив из раздела Releases и запустите `HollywoodEditor.exe`.
+Скачайте архив из раздела [Releases](https://github.com/Nello2/HollywoodEditor/releases) и запустите `HollywoodEditor.exe`.
 
 ### Вариант 2: собрать из исходников
 1.  Откройте `HollywoodEditor.sln` в Visual Studio на Windows.
